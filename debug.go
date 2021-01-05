@@ -8,6 +8,8 @@ import (
 	"github.com/go-gl/gl/v2.1/gl"
 )
 
+// MessageCallback outputs an OpenGL debug message.
+// It is designed for use with gl.DebugMessageCallback.
 func MessageCallback(source, gltype, id, severity uint32, length int32, message string, userParam unsafe.Pointer) {
 	var sourceStr, typeStr, severityStr string
 

@@ -26,14 +26,19 @@ import "C"
 
 var rdocAPI = C.rdocInit()
 
+// Rdoc returns true if the program is running inside RenderDoc, false otherwise.
 func Rdoc() bool {
 	return rdocAPI != nil
 }
+
+// RdocStartCapture starts a capture if the program is running inside RenderDoc.
 func RdocStartCapture() {
 	if Rdoc() {
 		C.rdocStartCapture(rdocAPI)
 	}
 }
+
+// RdocStartCapture ends the current capture if the program is running inside RenderDoc.
 func RdocEndCapture() {
 	if Rdoc() {
 		C.rdocEndCapture(rdocAPI)
