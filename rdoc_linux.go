@@ -1,3 +1,5 @@
+// +build renderdoc
+
 // Renderdoc API wrapper
 package gldebug
 
