@@ -9,7 +9,7 @@ import (
 
 // MessageCallback outputs an OpenGL debug message.
 // It is designed for use with glDebugMessageCallback.
-func MessageCallback(source, type_, id, severity uint32, length int32, message string) {
+func MessageCallback(source, type_, id, severity uint32, message string) {
 	var sourceStr, typeStr, severityStr string
 
 	switch source {
