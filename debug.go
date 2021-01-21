@@ -50,17 +50,17 @@ func MessageCallback(source, type_, id, severity uint32, message string) {
 
 	switch severity {
 	case gll.DEBUG_SEVERITY_HIGH:
-		severityStr = "High"
+		severityStr = "HIGH"
 	case gll.DEBUG_SEVERITY_MEDIUM:
-		severityStr = "Medium"
+		severityStr = "MED"
 	case gll.DEBUG_SEVERITY_LOW:
-		severityStr = "Low"
+		severityStr = "LOW"
 	case gll.DEBUG_SEVERITY_NOTIFICATION:
-		severityStr = "Notification"
+		severityStr = "NOTIF"
 	}
 
-	msg := fmt.Sprintf("(%d) source: %s, type: %s, severity: %s, message: %s", id, sourceStr, typeStr, severityStr, message)
-	if severity == gll.DEBUG_SEVERITY_HIGH {
+	msg := fmt.Sprintf("%d [%s] %s %s: %s", id, severityStr, sourceStr, typeStr, message)
+	if type_ == gll.DEBUG_TYPE_ERROR {
 		panic(msg)
 	} else {
 		log.Println("GL debug:", msg)
